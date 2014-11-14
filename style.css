@@ -1,0 +1,11 @@
+body {
+	background: url('images/seamless_paper_texture.png');
+}
+#content {
+	padding-top:20px;
+}
+.btn-fb {
+}
+.btn-fb img {
+	height:40px;
+}
