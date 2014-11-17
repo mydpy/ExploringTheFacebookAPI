@@ -25,10 +25,9 @@ Libraries Used:
 https://developers.facebook.com/quickstarts/?platform=web
 
 <strong>Redirect dev.com to your local machine to allow for development</strong>
-sudo /etc/hosts
-127.0.0.1	dev.com
-
-you can use any domain youwant, dev.com is what I chose.  "localhost" cannot be used, that's why we have to do this.
+<small>You can use any domain youwant, dev.com is what I chose.  "localhost" cannot be used, that's why we have to do this.</small>
+<pre>sudo /etc/hosts
+127.0.0.1	dev.com</pre>
 
 <hr/>
 
