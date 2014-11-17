@@ -33,7 +33,6 @@ https://developers.facebook.com/quickstarts/?platform=web
 
 <strong>Initialize Facebook JavaScript SDK</strong>
 <pre>
-<script>
     window.fbAsyncInit = function () {
         FB.init({
             appId: '{YOUR_APP_ID}',
@@ -51,7 +50,6 @@ https://developers.facebook.com/quickstarts/?platform=web
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-</script>
 </pre>
 
 <strong>Facebook Login Call</strong>
