@@ -1,5 +1,7 @@
 ExploringTheFacebookAPI
 =======================
+<strong>Author: Sam Edwards - @HandstandSam</strong>
+
 This is an example project to be used with a presentation for the API Craft RVA meetup on November 18th, 2014.
 
 Online Version of the example project: http://fbapi.htechlabs.com
@@ -8,12 +10,26 @@ Meetup Link: http://www.meetup.com/API-Craft-RVA/events/214759532/
 Facebook Developers Page: https://developers.facebook.com/
 Facebook API Explorer: https://developers.facebook.com/tools/explorer
 
-Sample Application: http://fbapi.htechlabs.com/complete.html
 
-<strong>Author: Sam Edwards - @HandstandSam</strong>
+Libraries Used:
+<ul>
+	<li>AngularJS 1.2.26 - https://angularjs.org/</li>
+	<li>Bootstrap 3.3.1 - http://getbootstrap.com/</li>
+	<li>Facebook JS SDK - https://developers.facebook.com/docs/javascript</li>
+</ul>
 
 <hr/>
 
+<strong>Create a Facebook Application ID</strong>
+https://developers.facebook.com/quickstarts/?platform=web
+
+<strong>Redirect dev.com to your local machine to allow for development</strong>
+sudo /etc/hosts
+127.0.0.1	dev.com
+
+you can use any domain youwant, dev.com is what I chose.  "localhost" cannot be used, that's why we have to do this.
+
+<hr/>
 
 <strong>Facebook Login Call</strong>
 <pre>

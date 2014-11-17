@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
     <meta name="author" content="Sam Edwards">
 
     <title>Exploring The Facebook API</title>
@@ -19,19 +18,13 @@
 
     <h2 class="text-center">Employee Directory Sign up </h2>
     <br/>
-
-
     <div class="panel">
         <div class="panel-body">
-            <div class="row">
-
-            </div>
             <div class="row">
                 <div class="col-sm-8">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">First Name</label>
-
                             <div class="col-sm-10">
                                 <input ng-model="user.fname" class="form-control" placeholder="First Name">
                             </div>
@@ -47,7 +40,7 @@
                             <label class="col-sm-2 control-label">Email</label>
 
                             <div class="col-sm-10">
-                                <input ng-model="user.email" type="email" class="form-control" placeholder="Email">
+                                <input ng-model="user.email" class="form-control" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group">
@@ -62,13 +55,12 @@
                             <label class="col-sm-2 control-label">Birthdate</label>
 
                             <div class="col-sm-10">
-                                <input type="date" ng-model="user.birthdate" class="form-control"
+                                <input ng-model="user.birthdate" class="form-control"
                                        placeholder="Birthdate">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Gender</label>
-
                             <div class="col-sm-10">
                                 <select ng-model="user.gender" class="form-control">
                                     <option value=""> --</option>
@@ -80,7 +72,6 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Website</label>
-
                             <div class="col-sm-10">
                                 <input ng-model="user.website" class="form-control" placeholder="Website">
                             </div>
@@ -108,7 +99,6 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Facebook Page Link</label>
-
                             <div class="col-sm-10">
                                 <input ng-model="user.facebook_link" class="form-control"
                                        placeholder="Facebook Page Link">
@@ -122,63 +112,17 @@
                     </form>
                 </div>
                 <div class="col-sm-4">
-                    <div class="text-center">
-                        <a class="btn btn-fb btn-default" href="#" ng-click="fblogin()">
-                            <img src="images/fb.png">
-                            <span ng-show="!fbuser">Log in</span>
-                            <span ng-show="fbuser">Log out</span>
-                        </a>
-                        <br/>
-                        <br/>
-                        <img ng-src="{{getFBPictureUrl(fbuser.id)}}" ng-show="fbuser" title="{{getFBPictureUrl(fbuser.id)}}"/
-                        class="img-thumbnail">
-                    </div>
-                    <br/>
                     <strong>New User</strong>
                     <br/>
                     <pre>{{user | json}}</pre>
                 </div>
             </div>
-
-				<img ng-src="{{friend.picture.data.url}}" ng-repeat="friend in fb_friends"/>
 		</div>
-    </div>
-
-    <div class="row" ng-show="fbuser">
-        <hr/>
-        <div class="col-sm-12">
-            <h3>Facebook Response</h3>
-            <pre>{{fbuser | json}}</pre>
-            <h3>Facebook Permissions</h3>
-            <pre>{{fbpermissions | json}}</pre>
-        </div>
     </div>
 </div>
 <!-- /.container -->
 
 <script src="angular-1.2.26/angular.min.js"></script>
-<script src="angular-1.2.26/angular-route.min.js"></script>
-<script src="angular-1.2.26/angular-sanitize.min.js"></script>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '112425018252',
-            xfbml: true,
-            version: 'v2.2'
-        });
-    };
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<script src="custom.js"></script>
+<script src="basic.js"></script>
 </body>
 </html>

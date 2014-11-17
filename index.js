@@ -1,8 +1,8 @@
-var app = angular.module('ExploringTheFacebookAPI', ['ngRoute', 'ngSanitize', 'appControllers']);
+var app = angular.module('ExploringTheFacebookAPI', ['appControllers']);
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams',
-	function($scope, $rootScope, $http, $location, $routeParams) {
+appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
+	function($scope, $rootScope, $http) {
 
 		$scope.user = {};
 		$scope.fbuser = null;
@@ -12,7 +12,6 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http', '$loca
 		};
 
 		$scope.getMe = function() {
-			
 			FB.api('/me', function(response) {
 				console.log(response);
 				$scope.fbuser = response;
@@ -42,19 +41,11 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http', '$loca
 				$scope.$apply();
 			});
 		};
-		$scope.getFriends = function() {
-			FB.api('/me/taggable_friends', function(response) {
-				console.log("Friends:");
-				console.log(response);
-				$scope.fb_friends=response.data;
-				$scope.$apply();
-			});
-		};
 
 
-$scope.getFBPictureUrl = function(id){
-	return "https://graph.facebook.com/" + id + "/picture?type=large";
-}
+		$scope.getFBPictureUrl = function(id){
+			return "https://graph.facebook.com/" + id + "/picture?type=large";
+		}
 
 		$scope.fblogin = function() {
 			if ($scope.fbuser == null) {
@@ -66,13 +57,12 @@ $scope.getFBPictureUrl = function(id){
 						console.log("Access Token: " + $scope.accessToken);
 						$scope.getPermissions();
 						$scope.getMe();
-						$scope.getFriends();
 					} else {
 						console.log('User cancelled login or did not fully authorize.');
 					}
 				}, {
-					scope: "public_profile,email"
-					//scope: "public_profile,email,user_birthday,user_about_me,user_status,user_location,user_hometown,user_birthday,user_website"
+					//scope: "public_profile,email"
+					scope: "public_profile,email,user_birthday,user_about_me,user_status,user_location,user_hometown,user_birthday,user_website"
 				});
 			} else {
 				FB.logout();
