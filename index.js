@@ -4,20 +4,31 @@ var appControllers = angular.module('appControllers', []);
 appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 	function($scope, $rootScope, $http) {
 
-		$scope.user = {};
-		$scope.fbuser = null;
+		$scope.FBUser = null;
 		
 		$scope.signup = function() {
 			alert("TODO: Do signup with user: " + JSON.stringify($scope.user));
 		};
 
+		$scope.user = {};
+		// $scope.user.first_name=null;
+		// $scope.user.last_name=null;
+		// $scope.user.email=null;
+		// $scope.user.bio=null;
+		// $scope.user.hometown=null;
+		// $scope.user.location=null;
+		// $scope.user.gender=null;
+		// $scope.user.birthday=null;
+		// $scope.user.website=null;
+		// $scope.user.facebook_link=null;
+
 		$scope.getMe = function() {
 			FB.api('/me', function(response) {
 				console.log(response);
-				$scope.fbuser = response;
+				$scope.FBUser = response;
 				var user = $scope.user;
-				user.fname = response.first_name;
-				user.lname = response.last_name;
+				user.first_name = response.first_name;
+				user.last_name = response.last_name;
 				user.email = response.email;
 				user.bio = response.bio;
 				if (response.hometown != undefined) {
@@ -27,7 +38,7 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 					user.location = response.location.name;
 				}
 				user.gender = response.gender;
-				user.birthdate = response.birthday;
+				user.birthday = response.birthday;
 				user.website = response.website;
 				user.facebook_link = response.link;
 				$scope.$apply();
@@ -48,13 +59,12 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 		}
 
 		$scope.fblogin = function() {
-			if ($scope.fbuser == null) {
+			if ($scope.FBUser == null) {
 				FB.login(function(response) {
 					console.log(response);
 					if (response.authResponse) {
 						console.log('Logged in.');
-						$scope.accessToken = response.authResponse.accessToken;
-						console.log("Access Token: " + $scope.accessToken);
+						$scope.FBAuthResponse = response.authResponse;
 						$scope.getPermissions();
 						$scope.getMe();
 					} else {
@@ -66,7 +76,7 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 				});
 			} else {
 				FB.logout();
-				$scope.fbuser = null;
+				$scope.FBUser = null;
 			}
 		};
 	}
