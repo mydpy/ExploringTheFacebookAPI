@@ -11,9 +11,9 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 		};
 
 		$scope.user = {};
-		// $scope.user.first_name=null;
-		// $scope.user.last_name=null;
-		// $scope.user.email=null;
+		$scope.user.first_name=null;
+		$scope.user.last_name=null;
+		$scope.user.email=null;
 		// $scope.user.bio=null;
 		// $scope.user.hometown=null;
 		// $scope.user.location=null;
