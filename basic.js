@@ -20,5 +20,16 @@ appControllers.controller('SignupCtrl', ['$scope', '$rootScope', '$http',
 		$scope.signup = function() {
 			alert("TODO: Do signup with user: " + JSON.stringify($scope.user));
 		};
+		
+		$scope.fblogin = function(){
+				fb.login(function(response)){
+					console.log(response); 
+					$scope.fbauth=response; 
+					$scope.
+				},{
+						Scope: "public_profile,email"
+				}
+				}
+		}
 	}
 ]);
